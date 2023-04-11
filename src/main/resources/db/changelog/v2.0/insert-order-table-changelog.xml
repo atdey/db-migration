@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet author="atish" id="insert-order">
+        <preConditions onFail="CONTINUE" onError="CONTINUE">
+            <tableExists tableName="order"/>
+            <tableExists tableName="person"/>
+            <tableExists tableName="products"/>
+            <dbms type="postgresql"/>
+        </preConditions>
+        <insert tableName="order">
+            <column name="id" valueNumeric="1"/>
+            <column name="person_id" value="1"/>
+            <column name="product_id" value="2"/>
+        </insert>
+        <insert tableName="order">
+            <column name="id" valueNumeric="2"/>
+            <column name="person_id" value="2"/>
+            <column name="product_id" value="2"/>
+        </insert>
+        <insert tableName="order">
+            <column name="id" valueNumeric="3"/>
+            <column name="person_id" value="1"/>
+            <column name="product_id" value="4"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

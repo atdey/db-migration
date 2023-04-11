@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet author="atish" id="create-order">
+        <preConditions onFail="CONTINUE" onError="CONTINUE">
+            <tableExists tableName="products"/>
+        </preConditions>
+        <createTable tableName="order">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="person_id" type="INT">
+                <constraints nullable="false" foreignKeyName="fk_order_person" references="person(id)"/>
+            </column>
+            <column name="product_id" type="INT">
+                <constraints nullable="false" foreignKeyName="fk_order_product" references="products(id)"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="order"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

@@ -3,18 +3,18 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
-    <changeSet author="atish" id="create-person">
-        <createTable tableName="person">
+    <changeSet author="atish" id="create-products">
+        <createTable tableName="products">
             <column autoIncrement="true" name="id" type="INT">
                 <constraints primaryKey="true"/>
             </column>
             <column name="name" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="address" type="VARCHAR(255)"/>
+            <column name="category" type="VARCHAR(255)"/>
         </createTable>
         <rollback>
-            <dropTable tableName="person"/>
+            <dropTable tableName="products"/>
         </rollback>
     </changeSet>
 </databaseChangeLog>
