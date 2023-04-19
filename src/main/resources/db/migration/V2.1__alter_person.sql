@@ -1,2 +1,2 @@
-ALTER TABLE users
+ALTER TABLE person
 ADD COLUMN phone VARCHAR(50);
