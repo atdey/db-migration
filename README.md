@@ -6,5 +6,5 @@ Create an order management system's database with following tables :
 
 Now, migrate some existing data in the Db.
 
-Additional requirement :
+Additional Requirement :
 Can we only create person table and migrate data in first release and rest in the second release ?
