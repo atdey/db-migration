@@ -6,6 +6,7 @@
     <changeSet author="atish" id="create-order">
         <preConditions onFail="CONTINUE" onError="CONTINUE">
             <tableExists tableName="products"/>
+            <tableExists tableName="person"/>
         </preConditions>
         <createTable tableName="order">
             <column autoIncrement="true" name="id" type="INT">
